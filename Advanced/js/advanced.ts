@@ -18,6 +18,9 @@ class Motor extends Vehicles {
 		this.speed = speed;
 		this.hp = hp;
 	}
+	method(){
+		return `${this.seats} ${this.fuel} ${this.year} ${this.speed} ${this.hp}`;
+	}
 }
 
 // data car
@@ -34,7 +37,40 @@ class Truck extends Vehicles {
 		this.hp = hp;
 		this.truck = truck;
 	}
-}
+	method(){
+		return `${this.seats} ${this.fuel} ${this.year} ${this.hp} ${this.truck}`;
+	}
 
+}
 //data truck
 let monstertruck = new Truck("Bigfoot", 50, 2, "Methanol", "2007", 2000, "Monster Truck");
+
+
+var cars : Array<any>=[tesla, audi, skoda, monstertruck];
+
+for(let i = 0; i<cars.length;i++){
+	let base = document.getElementsByClassName("container")
+	console.log(base)
+	base.innerHTML += `<div class="card">
+                            <div class="card-header" id="heading${+i}">
+                                <h2 class="mb-0">
+                                    <button style="width :100%" class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse${+i}" aria-expanded="false" aria-controls="collapse${+i}">
+                                        <div class="row"><h3 class="col-6 text-left offset-1">${cars[i].model}</h3></div>
+                                    </button>
+                                </h2>
+                            </div>
+                            <div id="collapse${+i}" class="collapse" aria-labelledby="heading${+i}" data-parent="#accordionExample">
+                                <div class="card-body row">
+                                	<img style="object-fit:cover" class="card-img col-4 offset-1" src="#">
+                                	<div class="col-1 flex flex-column">
+                                		<p>${audi.method()}</p>
+                                		<p>${tesla.method()}</p>
+                                		<p>${skoda.method()}</p>
+                                		<p>${monstertruck.method()}</p>
+									</div>
+                                    <button class="btn btn-dark col-2 offset-9 mt-1">Price</button>
+                                </div>
+                            </div>
+                        </div>`;
+};
+
