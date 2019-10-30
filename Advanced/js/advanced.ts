@@ -48,9 +48,10 @@ let monstertruck = new Truck("Bigfoot", 50, 2, "Methanol", "2007", 2000, "Monste
 
 var cars : Array<any>=[tesla, audi, skoda, monstertruck];
 
+let base = document.getElementById("accordionExample");
+	console.log(base);
+
 for(let i = 0; i<cars.length;i++){
-	let base = document.getElementsByClassName("container")
-	console.log(base)
 	base.innerHTML += `<div class="card">
                             <div class="card-header" id="heading${+i}">
                                 <h2 class="mb-0">
@@ -62,7 +63,7 @@ for(let i = 0; i<cars.length;i++){
                             <div id="collapse${+i}" class="collapse" aria-labelledby="heading${+i}" data-parent="#accordionExample">
                                 <div class="card-body row">
                                 	<img style="object-fit:cover" class="card-img col-4 offset-1" src="#">
-                                	<div class="col-1 flex flex-column">
+                                	<div class="col-6 flex flex-column">
                                 		<p>${audi.method()}</p>
                                 		<p>${tesla.method()}</p>
                                 		<p>${skoda.method()}</p>
